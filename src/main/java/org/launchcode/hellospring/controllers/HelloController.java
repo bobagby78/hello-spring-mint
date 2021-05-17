@@ -1,45 +1,42 @@
 package org.launchcode.hellospring.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@ResponseBody
+@RequestMapping("hello") //be sure to add this to the URL when trying it out.
 public class HelloController {
-
+    // resides at /hello/hello
     @GetMapping("hello")
-    @ResponseBody
     public String hello(){
         return "<html>" +
                 "<h1>Hello, Spring</h1>" +
                 "</html>";
     }
-
+    // resides at /hello/goodbye
     @GetMapping("goodbye")
-    @ResponseBody
     public String goodbye(){
         return "Goodbye, Spring!";
     }
 
+    // resides at /hello/helloParam
     //handle reqs of the form /hello?name=launchcode
     @GetMapping("helloParam")
-    @ResponseBody
     public String helloWithQueryParam(@RequestParam String name){
         return "Hello, " + name + "!";
     }
 
+    // resides at /hello/hello/{name}
     //handles requests of the form/formInputName
     @GetMapping("hello/{name}")
-    @ResponseBody
     public String helloWithPathParam(@PathVariable String name){
         return "Hello, " + name +  "!";
     }
 
+    // resides at /hello/forms
     @GetMapping("forms")
-    @ResponseBody
     public String helloForm(){
         return
                 "<html>" +
