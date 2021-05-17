@@ -23,7 +23,7 @@ public class HelloController {
 
     // resides at /hello/helloParam
     //handle reqs of the form /hello?name=launchcode
-    @GetMapping("helloParam")
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "helloParam")
     public String helloWithQueryParam(@RequestParam String name){
         return "Hello, " + name + "!";
     }
@@ -35,8 +35,8 @@ public class HelloController {
         return "Hello, " + name +  "!";
     }
 
-    // resides at /hello/forms
-    @GetMapping("forms")
+    // resides at /hello/form
+    @GetMapping("form")
     public String helloForm(){
         return
                 "<html>" +
