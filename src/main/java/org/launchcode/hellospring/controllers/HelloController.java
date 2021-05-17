@@ -42,7 +42,7 @@ public class HelloController {
         return
                 "<html>" +
                         "<body>" +
-                            "<form action = 'helloParam'>" + //submits the request to hello
+                            "<form action = 'hello'>" + //submits the request to helloParam
                                 "<input type = 'text' name = 'name'>" +
                                 "<input type = 'submit' value = 'Greet me!'>" +
                             "</form>" +
